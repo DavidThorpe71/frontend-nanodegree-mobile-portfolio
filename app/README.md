@@ -12,11 +12,11 @@ For this page I used the Gulp task runner, using the included [gulp file](gulpfi
 First I installed node.js,
 after this in the node.js command line I install the gulp command using
 
-''npm install --global gulp-cli''
+```npm install --global gulp-cli```
 
 Then I installed gulp in your devDependencies using the below: 
 
-''npm install --save-dev gulp''
+```npm install --save-dev gulp```
 
 Then using the included Gulp file I ran the gulp command to run all the tasks in the gulp file.
 
