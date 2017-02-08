@@ -10,15 +10,17 @@ The [app folder](/app/) contains the original versions (before I ran the Gulp ta
 For this page I used the Gulp task runner, using the included [gulp file](gulpfile.js).
 
 First I installed node.js,
-after this in the node.js command line I install the gulp command using
+after this in the node.js command line I installed the gulp command using:
 
 ```npm install --global gulp-cli```
 
-Then I installed gulp in your devDependencies using the below: 
+Then I installed gulp in devDependencies using the below: 
 
 ```npm install --save-dev gulp```
 
-Then using the included Gulp file I ran the gulp command to run all the tasks in the gulp file.
+Then using the included Gulp file I ran the gulp command to run all the tasks in the gulp file (which creates the dist folder and contents):
+
+```gulp```
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
