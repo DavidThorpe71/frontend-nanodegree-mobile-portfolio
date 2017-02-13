@@ -519,7 +519,11 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  var winHeight = window.innerHeight;
+  var rows = Math.ceil(winHeight / s);
+  var totalPizzas = cols * rows;
+
+  for (var i = 0; i < totalPizzas; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
