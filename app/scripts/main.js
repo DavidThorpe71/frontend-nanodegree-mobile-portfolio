@@ -500,10 +500,10 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 
   for (i = 0; i < items.length; i++) {
     var phase = phaseArray[i % 5];
-    items[i].style.transform = "translateX(" + (items[i].basicLeft + 100 * phase) + "px)";
+    items[i].style.transform = "translateX(" + (100 * phase) + "px)";
   }
 
-  
+  ticking = false;    
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -515,9 +515,6 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   }
 }
 
-// runs updatePositions on scroll
-window.addEventListener('scroll', updatePositions);
-
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
@@ -528,10 +525,24 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
     elem.style.width = "73.333px";
-    elem.style.left = (i % cols) * s + 'px'
-    elem.basicLeft = (i % cols) * s;
+    elem.style.left = (i % cols) * s + 'px';
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     document.querySelector("#movingPizzas1").appendChild(elem);
   }
   updatePositions();
 });
+
+// // runs updatePositions on scroll
+function onScroll() {
+    lastScrollY = window.scrollY;
+    requestTick();
+}
+
+function requestTick() {
+    if(!ticking) {
+        requestAnimationFrame(updatePositions);
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', onScroll, false);
